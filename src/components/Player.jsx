@@ -15,26 +15,23 @@ const Player = ({ src, onTimeUpdate }) => {
   }, [playing]);
 
   const handleTimeUpdate = (e) => {
-    //console.log(e.target.currentTime);
     onTimeUpdate(e.target.currentTime);
   };
 
   return (
-    <>
-      <audio autoPlay controls ref={audioRef} onTimeUpdate={handleTimeUpdate}>
+    <div className="player-controls">
+      <audio controls ref={audioRef} onTimeUpdate={handleTimeUpdate}>
         <source src={src} type="audio/mpeg" />
         Your browser does not support the audio element.
       </audio>
       <div>
         <button
           type="button"
+          className={playing ? "play play-button" : "pause play-button"}
           onClick={() => setPlaying((prevState) => !prevState)}
-        >
-          <img src={playing ? playIcon : pauseIcon} />
-          Button
-        </button>
+        />
       </div>
-    </>
+    </div>
   );
 };
 

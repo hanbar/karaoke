@@ -14,7 +14,7 @@ const Lyrics = ({ lines, currentLineIndex }) => {
   }, [currentLineIndex]);
 
   return (
-    <>
+    <div className="lyrics">
       {lines.map((line, index) => {
         if (currentLineIndex === index) {
           return (
@@ -25,7 +25,7 @@ const Lyrics = ({ lines, currentLineIndex }) => {
         }
         return <p key={index}>{line.text}</p>;
       })}
-    </>
+    </div>
   );
 };
 

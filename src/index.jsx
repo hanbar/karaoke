@@ -9,12 +9,9 @@ const App = () => {
   const [activeLine, setActiveLine] = useState(-1);
 
   const handleTimeUpdate = (currentTime) => {
-    const index = lines.findIndex((line) => line.time > currentTime) - 1;
-    //const indexes = lines.filter((line) => line.time < currentTime);
-    //const index = indexes.pop();
+    const index = lines.findLastIndex((line) => line.time < currentTime);
 
     if (index !== activeLine) {
-      console.log(index);
       setActiveLine(index);
     }
   };
